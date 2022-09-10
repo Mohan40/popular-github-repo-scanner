@@ -1,11 +1,21 @@
 {
-  "name": "popular-repo-github-scanner",
+  "name": "popular-github-repo-scanner",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Returns the most popular repositories on GitHub based on the number of forks. For each such repository, top contributors and their commit count is also returned.",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "nodemon src/index.js"
   },
   "author": "Mohan Kumar S",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "joi": "^17.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
