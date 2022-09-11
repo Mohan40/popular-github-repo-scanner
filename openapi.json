@@ -12,6 +12,9 @@
   "servers": [
     {
       "url": "https://popular-repo-github-scanner.herokuapp.com"
+    },
+    {
+      "url": "http://localhost:443"
     }
   ],
   "paths": {
