@@ -1,0 +1,81 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "popular-repo-github-scanner",
+    "description": "Returns the top most popular repositories on GitHub based on the number of forks. For each such repository, the top committees and their commit count.",
+    "version": "1.0.0",
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/Mohan40/popular-github-repo-scanner/blob/main/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://popular-repo-github-scanner.herokuapp.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "GET request to get list of top repos and contributors",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "microsoft"
+          },
+          {
+            "name": "numberOfPopularRepos",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "numberOfPopularCommittiees",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "4"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failure response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
