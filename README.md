@@ -3,6 +3,10 @@
 ### Objective: 
 Find the n most popular repositories on GitHub based on the number of forks. For each such repository find the m committees[1] and their commit count.
 
+### Hosted on Heroku:
+```
+https://popular-repo-github-scanner.herokuapp.com/?organization=microsoft&numberOfPopularCommittiees=4&numberOfPopularRepos=1
+```
 
 ### How to run the server locally and make an API request?
 1. Clone the repo locally: 
@@ -25,14 +29,14 @@ npm test //This restarts the server automatically when any code changes are made
 ```
 5. To make an API request => Open Git Bash (```curl``` should be installed) => Run the below command:
 ```
-curl --location --request GET 'https://popular-repo-github-scanner.herokuapp.com/?organization=<organization>&numberOfPopularRepos=<m>&numberOfPopularCommittiees=<n>'
+curl --location --request GET 'http://localhost:443/?organization=<organization>&numberOfPopularRepos=<m>&numberOfPopularCommittiees=<n>'
 ```
 
 Alternatively, we can run make the request in Postman using the below: 
 
 * API Endpoint URL: 
 ```
-https://popular-repo-github-scanner.herokuapp.com/?organization=<organization>&numberOfPopularRepos=<m>&numberOfPopularCommittiees=<n>
+http://localhost:443/?organization=<organization>&numberOfPopularRepos=<m>&numberOfPopularCommittiees=<n>
 ```
 
 * Method: ```GET``` 
@@ -47,7 +51,7 @@ n => integer => Number of top contributors to be retrieved based on number of co
 
 ## Sample API Request - Correct Data:
 ```
-curl --location --request GET 'https://popular-repo-github-scanner.herokuapp.com/?organization=microsoft&numberOfPopularRepos=1&numberOfPopularCommittiees=2'
+curl --location --request GET 'http://localhost:443/?organization=microsoft&numberOfPopularRepos=1&numberOfPopularCommittiees=2'
 ```
 
 ## Sample API Response - Successful:
@@ -79,7 +83,7 @@ curl --location --request GET 'https://popular-repo-github-scanner.herokuapp.com
 
 ## Sample API Request - Incorrect Data:
 ```
-curl --location --request GET 'https://popular-repo-github-scanner.herokuapp.com/?organization=microsoft&numberOfPopularRepos=1&numberOfPopularCommittiees=0'
+curl --location --request GET 'http://localhost:443/?organization=microsoft&numberOfPopularRepos=1&numberOfPopularCommittiees=0'
 ```
 
 ## Sample API Response - Error:
@@ -106,6 +110,9 @@ curl --location --request GET 'https://popular-repo-github-scanner.herokuapp.com
   "servers": [
     {
       "url": "https://popular-repo-github-scanner.herokuapp.com"
+    },
+    {
+      "url": "http://localhost:443"
     }
   ],
   "paths": {
